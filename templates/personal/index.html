@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rafa Lima — Personal Trainer</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e1a1d;--card:#16272b;--sand:#f1e9dc;--or:#ff6b2c;--muted:#9bb0b3;--line:rgba(241,233,220,.14)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--sand);font:17px/1.55 "Barlow",system-ui,sans-serif}
+h1,h2,h3{font-family:"Barlow Condensed",sans-serif;line-height:.98;margin:0;font-weight:700}
+a{color:inherit;text-decoration:none}
+.w{max-width:1100px;margin:0 auto;padding:0 22px}
+section{padding:96px 0}
+h2{font-size:clamp(38px,6vw,72px);margin-bottom:14px}
+.lead{color:var(--muted);max-width:44ch;margin:0 0 44px}
+.btn{display:inline-block;background:var(--or);color:#0e1a1d;font-weight:600;padding:15px 30px;border-radius:6px;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-3px);background:#ff8450}
+.btn.alt{background:transparent;color:var(--sand);box-shadow:inset 0 0 0 1.5px var(--line)}
+.img{background:var(--src,linear-gradient(#0000,#0000)) center/cover,var(--g,var(--card))}
+header{position:absolute;top:0;left:0;right:0;z-index:5;padding:22px 0}
+header .w{display:flex;justify-content:space-between;align-items:center}
+header b{font:700 26px "Barlow Condensed";letter-spacing:.02em}
+header nav{display:flex;gap:26px;align-items:center;font-size:15px}
+@media(max-width:640px){header nav a:not(.btn){display:none}}
+.hero{min-height:100vh;display:flex;align-items:flex-end;padding:140px 0 70px;position:relative;--g:linear-gradient(120deg,#1d3a3f,#0e1a1d 60%)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 4%,rgba(14,26,29,.2) 60%)}
+.hero .w{position:relative;z-index:2;width:100%}
+.hero h1{font-size:clamp(60px,13vw,170px);text-transform:uppercase;font-weight:800;max-width:9ch}
+.hero p{font-size:clamp(18px,2.2vw,24px);max-width:32ch;margin:22px 0 32px;color:#d6d0c4}
+.hero .row{display:flex;gap:14px;flex-wrap:wrap}
+.price-from{margin-top:36px;color:var(--muted);font-size:15px}
+.price-from b{color:var(--sand);font-size:20px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.plan{background:var(--card);border-radius:14px;padding:36px 30px;display:flex;flex-direction:column}
+.plan.top{background:var(--or);color:#0e1a1d}
+.plan h3{font-size:30px}
+.plan .p{font:800 64px/1 "Barlow Condensed";margin:18px 0 4px}
+.plan .p small{font:500 17px "Barlow"}
+.plan>span{color:var(--muted);font-size:15px}
+.plan.top>span{color:#3b2417}
+.plan ul{list-style:none;padding:0;margin:24px 0 30px;display:grid;gap:10px;font-size:16px}
+.plan li{padding-bottom:10px;border-bottom:1px solid var(--line)}
+.plan.top li{border-color:rgba(14,26,29,.25)}
+.plan .btn{margin-top:auto;text-align:center}
+.plan.top .btn{background:#0e1a1d;color:var(--sand)}
+@media(max-width:860px){.plans{grid-template-columns:1fr}}
+.mods{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.mod{position:relative;width:100%;aspect-ratio:3/4;border-radius:14px;overflow:hidden;display:flex;align-items:flex-end;padding:20px}
+.mod::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,26,29,.9),transparent 60%)}
+.mod div{position:relative;z-index:1}
+.mod h3{font-size:28px}
+.mod p{margin:4px 0 0;font-size:14px;color:#cfc8ba}
+@media(max-width:900px){.mods{grid-template-columns:repeat(2,1fr)}}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.res figure{margin:0}
+.res .img{aspect-ratio:4/5;border-radius:14px}
+.res figcaption{padding-top:12px;color:var(--muted);font-size:15px}
+@media(max-width:700px){.res{grid-template-columns:1fr}}
+.about .w{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:center}
+.about .img{width:100%;aspect-ratio:4/5;border-radius:14px;--g:linear-gradient(160deg,#2b4a4f,#16272b)}
+.about p{color:#d6d0c4;margin:0 0 16px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.facts b{display:block;font:800 44px/1 "Barlow Condensed";color:var(--or)}
+.facts span{font-size:14px;color:var(--muted)}
+@media(max-width:800px){.about .w{grid-template-columns:1fr}}
+details{border-top:1px solid var(--line);padding:22px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{font:600 26px "Barlow Condensed";cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+summary::after{content:"+";color:var(--or);font-size:30px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:12px 0 0;color:var(--muted);max-width:60ch}
+.cta{text-align:center;padding:110px 0}
+.cta h2{font-size:clamp(46px,8vw,110px);text-transform:uppercase;max-width:11ch;margin:0 auto 20px}
+.cta p{color:var(--muted);margin:0 auto 32px;max-width:36ch}
+footer{border-top:1px solid var(--line);padding:26px 0 90px;color:var(--muted);font-size:14px;text-align:center}
+.zap{position:fixed;right:18px;bottom:18px;z-index:9;background:#25d366;color:#fff;font-weight:600;padding:14px 22px;border-radius:99px;box-shadow:0 10px 28px rgba(37,211,102,.4)}
+:focus-visible{outline:2px solid var(--or);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<!-- EDITE: troque 5500000000000 pelo número (55 + DDD + número) em TODOS os links wa.me -->
+<header><div class="w"><b>Rafa Lima</b><nav><a href="#planos">Planos</a><a href="#treinos">Treinos</a><a href="#sobre">Sobre</a><a class="btn" style="padding:10px 20px" href="https://wa.me/5500000000000?text=Oi!%20Quero%20agendar%20uma%20aula%20experimental" target="_blank" rel="noopener">Agendar</a></nav></div></header>
+<main>
+<!-- EDITE: foto de fundo do topo: style="--src:url(img/hero.jpg)" na section abaixo -->
+<section class="hero img" style="padding-bottom:70px">
+  <div class="w">
+    <h1>Treino que cabe na sua rotina.</h1>
+    <p>Personal trainer com foco em força, mobilidade e bem-estar. Aulas na academia, em casa ou ao ar livre.</p>
+    <div class="row"><a class="btn" href="https://wa.me/5500000000000?text=Oi!%20Quero%20agendar%20uma%20aula%20experimental" target="_blank" rel="noopener">Agendar aula experimental</a><a class="btn alt" href="#planos">Ver valores</a></div>
+    <div class="price-from">Aulas a partir de <b>R$ 70</b></div>
+  </div>
+</section>
+
+<section id="planos"><div class="w">
+  <h2>Escolha o seu ritmo.</h2>
+  <p class="lead">Valores de exemplo. Cada aula dura 60 minutos e o plano é montado para o seu objetivo.</p>
+  <div class="plans">
+    <div class="plan"><h3>Aula avulsa</h3><div class="p">R$ 90<small> / aula</small></div><span>Para experimentar ou treinar de vez em quando</span><ul><li>1 aula de 60 minutos</li><li>Avaliação inicial</li><li>Sem fidelidade</li></ul><a class="btn" href="https://wa.me/5500000000000?text=Oi!%20Quero%20a%20aula%20avulsa" target="_blank" rel="noopener">Quero esta</a></div>
+    <div class="plan top"><h3>Pacote 8 aulas</h3><div class="p">R$ 76<small> / aula</small></div><span>Total de R$ 608 · o mais escolhido</span><ul><li>2 aulas por semana</li><li>Plano de treino personalizado</li><li>Acompanhamento pelo WhatsApp</li></ul><a class="btn" href="https://wa.me/5500000000000?text=Oi!%20Quero%20o%20pacote%20de%208%20aulas" target="_blank" rel="noopener">Quero este</a></div>
+    <div class="plan"><h3>Mensal 12 aulas</h3><div class="p">R$ 70<small> / aula</small></div><span>Total de R$ 840 · melhor custo</span><ul><li>3 aulas por semana</li><li>Reavaliação mensal</li><li>Dicas de alimentação e rotina</li></ul><a class="btn" href="https://wa.me/5500000000000?text=Oi!%20Quero%20o%20plano%20mensal" target="_blank" rel="noopener">Quero este</a></div>
+  </div>
+</div></section>
+
+<section id="treinos" style="padding-top:20px"><div class="w">
+  <h2>Força e bem-estar.</h2>
+  <p class="lead">Treino não é só suar. Cuidar do corpo também é respirar, alongar e descansar bem. Adicione fotos dos seus treinos em cada bloco.</p>
+  <div class="mods">
+    <div class="mod img" style="--g:linear-gradient(160deg,#3a5a5f,#16272b)"><div><h3>Funcional</h3><p>Movimentos do dia a dia, com mais energia</p></div></div>
+    <div class="mod img" style="--g:linear-gradient(160deg,#5a3a2b,#1a1210)"><div><h3>Força</h3><p>Ganho de massa e postura</p></div></div>
+    <div class="mod img" style="--g:linear-gradient(160deg,#3a4f3f,#121a14)"><div><h3>Mobilidade</h3><p>Alongamento e prevenção de dores</p></div></div>
+    <div class="mod img" style="--g:linear-gradient(160deg,#4a4a5f,#14141c)"><div><h3>Relaxamento</h3><p>Respiração e recuperação</p></div></div>
+  </div>
+</div></section>
+
+<section style="padding-top:20px"><div class="w">
+  <h2>Resultados reais.</h2>
+  <p class="lead">Use fotos de alunos com autorização por escrito e conte a história de cada um.</p>
+  <div class="res">
+    <figure><div class="img" style="--g:linear-gradient(160deg,#2f4a50,#16272b)"></div><figcaption>Nome, 3 meses: mais disposição e menos dor nas costas</figcaption></figure>
+    <figure><div class="img" style="--g:linear-gradient(160deg,#4a3a2f,#1a1410)"></div><figcaption>Nome, 6 meses: primeira corrida de 5 km</figcaption></figure>
+    <figure><div class="img" style="--g:linear-gradient(160deg,#3a4a3a,#121a12)"></div><figcaption>Nome, 4 meses: força e mais confiança</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="sobre" class="about"><div class="w">
+  <!-- EDITE: sua foto: style="--src:url(img/eu.jpg)" -->
+  <div class="img"></div>
+  <div>
+    <h2>Oi, eu sou o Rafa.</h2>
+    <p>Treino pessoas há [X] anos e aprendi que cada corpo tem seu ritmo. Meu trabalho é ouvir o seu objetivo, respeitar seus limites e acompanhar você até chegar lá.</p>
+    <p>Aqui ninguém é número. Você tem meu WhatsApp, eu sei o nome dos seus filhos e comemoro cada conquista junto.</p>
+    <div class="facts"><div><b>00+</b><span>alunos atendidos</span></div><div><b>00</b><span>anos de experiência</span></div><div><b>CREF</b><span>000000-G/UF</span></div></div>
+  </div>
+</div></section>
+
+<section style="padding-top:20px"><div class="w">
+  <h2>Dúvidas comuns.</h2>
+  <p class="lead">&nbsp;</p>
+  <details><summary>Preciso de academia?</summary><p>Não. Treino em academia, no seu condomínio, em casa ou em uma praça, com o equipamento que houver.</p></details>
+  <details><summary>Nunca treinei, posso começar?</summary><p>Pode. A primeira aula serve para entender seu histórico, seus objetivos e montar o plano no seu nível.</p></details>
+  <details><summary>Posso remarcar uma aula?</summary><p>Pode, com aviso de 12 horas de antecedência, sem custo.</p></details>
+</div></section>
+
+<section class="cta"><div class="w">
+  <h2>Sua primeira aula é comigo.</h2>
+  <p>Conte seu objetivo e eu monto o melhor caminho para você.</p>
+  <a class="btn" href="https://wa.me/5500000000000?text=Oi!%20Quero%20agendar%20uma%20aula%20experimental" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+</div></section>
+</main>
+<footer>© 2026 Rafa Lima · Personal Trainer · Instagram @seuperfil</footer>
+<a class="zap" href="https://wa.me/5500000000000?text=Oi!%20Quero%20agendar%20uma%20aula%20experimental" target="_blank" rel="noopener">WhatsApp</a>
+</body>
+</html>
